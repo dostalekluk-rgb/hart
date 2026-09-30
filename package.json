@@ -1,0 +1,14 @@
+{
+  "name": "hart-ai-agent",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "description": "HART Study - HPV after Radiotherapy Interim Analysis Agent",
+  "dependencies": {
+    "@google/genai": "^2.13.0",
+    "basic-ftp": "^6.0.2",
+    "dotenv": "^17.4.2",
+    "googleapis": "^173.0.0",
+    "pdf-parse-fork": "^1.2.0"
+  }
+}

@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HART Study - Patient Registry Table</title>
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; padding: 20px; color: #222222; }
+        h2 { font-family: 'Merriweather', Georgia, serif; color: #a6192e; border-bottom: 2px solid #a6192e; padding-bottom: 6px; }
+        .pac-table { border-collapse: collapse; margin-bottom: 25px; font-size: 13px; width: 100%; }
+        .pac-table th { background-color: #f4f4f4; color: #a6192e; text-align: left; padding: 8px 10px; font-weight: 700; border-bottom: 2px solid #a6192e; }
+        .pac-table td { padding: 8px 10px; border-bottom: 1px solid #e5e7eb; color: #333333; }
+        .pac-table tr:nth-child(even) { background-color: #fdfdfd; }
+    </style>
+</head>
+<body>
+    <h2>HART Study - Patient Cohort Registry</h2>
+    <table class="pac-table">
+      <thead>
+        <tr>
+          <th>Patient ID</th><th>Age</th><th>FIGO Stage</th><th>Histology</th><th>Grade</th>
+          <th>Baseline SCC</th><th>Screening HPV</th><th>Visit 1 HPV</th><th>Visit 2 HPV</th><th>Visit 3 HPV</th>
+          <th>Recurrence</th><th>Study Status</th>
+        </tr>
+      </thead>
+      <tbody>
+<tr>
+            <td><strong>Budějovice_01</strong></td>
+            <td>34</td>
+            <td>IIB</td>
+            <td>-</td>
+            <td>G2</td>
+            <td>9.4</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Budějovice_02</strong></td>
+            <td>22</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>5.1</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka 4</strong></td>
+            <td>74</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>3.2</td>
+            <td>positive</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka 11</strong></td>
+            <td>45</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>2.2</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_1</strong></td>
+            <td>45</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>5.7</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_2</strong></td>
+            <td>34</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_3</strong></td>
+            <td>62</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>5</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_5</strong></td>
+            <td>60</td>
+            <td>IIIC1</td>
+            <td>Adenocarcinoma</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_6</strong></td>
+            <td>37</td>
+            <td>IIIC2</td>
+            <td>Adenocarcinoma</td>
+            <td>-</td>
+            <td>-</td>
+            <td>negative</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_7</strong></td>
+            <td>40</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G1</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_8</strong></td>
+            <td>48</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>3.3</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_9</strong></td>
+            <td>60</td>
+            <td>IVA</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>14.6</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_10</strong></td>
+            <td>46</td>
+            <td>IIB</td>
+            <td>Adenocarcinoma</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_12</strong></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_13</strong></td>
+            <td>54</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Bulovka_14</strong></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNBRNO01</strong></td>
+            <td>49</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>1</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>FNBRNO02</strong></td>
+            <td>79</td>
+            <td>IIIB</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>5.5</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNBRNO03</strong></td>
+            <td>72</td>
+            <td>IIIB</td>
+            <td>Adenocarcinoma</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNBRNO04</strong></td>
+            <td>48</td>
+            <td>IB3</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>63</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNKV_001</strong></td>
+            <td>62</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>5.51</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNKV_002</strong></td>
+            <td>70</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>3.31</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Discontinued (EOT)</td>
+        </tr>
+<tr>
+            <td><strong>FNKV_003</strong></td>
+            <td>61</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>3.80</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>FNKV_004</strong></td>
+            <td>72</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>391</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>HK001</strong></td>
+            <td>47</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>14.69</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>HK002</strong></td>
+            <td>46</td>
+            <td>IIA2</td>
+            <td>Squamous Cell</td>
+            <td>G1</td>
+            <td>0.99</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>HK003</strong></td>
+            <td>41</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>17.51</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>HK004</strong></td>
+            <td>44</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>8.37</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Jihlava1</strong></td>
+            <td>53</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Jihlava2</strong></td>
+            <td>34</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>MOU_001</strong></td>
+            <td>61</td>
+            <td>IIIB</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>MOU_002</strong></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Pardubice1</strong></td>
+            <td>76</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>11.54</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Pardubice2</strong></td>
+            <td>63</td>
+            <td>IVA</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Pardubice3</strong></td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Pardubice4</strong></td>
+            <td>44</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>4.39</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>Pardubice5</strong></td>
+            <td>48</td>
+            <td>IIIC1</td>
+            <td>Adenosquamous</td>
+            <td>-</td>
+            <td>9.1</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN 4</strong></td>
+            <td>55</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>7</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN 5</strong></td>
+            <td>77</td>
+            <td>IIB</td>
+            <td>Adenocarcinoma</td>
+            <td>G1</td>
+            <td>0.7</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_1</strong></td>
+            <td>60</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>16.7</td>
+            <td>positive</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_2</strong></td>
+            <td>49</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>4.1</td>
+            <td>positive</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Completed V1</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_3</strong></td>
+            <td>72</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_6</strong></td>
+            <td>53</td>
+            <td>IIIC1</td>
+            <td>Adenocarcinoma</td>
+            <td>-</td>
+            <td>1.2</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Discontinued (EOT)</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_7</strong></td>
+            <td>84</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G3</td>
+            <td>2</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_8</strong></td>
+            <td>62</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G1</td>
+            <td>17</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_9</strong></td>
+            <td>44</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>4</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_10</strong></td>
+            <td>46</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>4.0</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_11</strong></td>
+            <td>65</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>2.7</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_12</strong></td>
+            <td>25</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>3.1</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_13</strong></td>
+            <td>70</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>4.3</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_14</strong></td>
+            <td>59</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_15</strong></td>
+            <td>35</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>24.8</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_16</strong></td>
+            <td>59</td>
+            <td>IIB</td>
+            <td>Squamous Cell</td>
+            <td>-</td>
+            <td>19.0</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_17</strong></td>
+            <td>32</td>
+            <td>IIIC1</td>
+            <td>-</td>
+            <td>G3</td>
+            <td>1.0</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_18</strong></td>
+            <td>48</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>negative</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_19</strong></td>
+            <td>42</td>
+            <td>IIIC1</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_20</strong></td>
+            <td>63</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>positive</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+<tr>
+            <td><strong>PLZEN_21</strong></td>
+            <td>55</td>
+            <td>IIIC2</td>
+            <td>Squamous Cell</td>
+            <td>G2</td>
+            <td>-</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td>untested</td>
+            <td><strong>No</strong></td>
+            <td>Active Observation</td>
+        </tr>
+  </tbody>
+</table>
+</body>
+</html>

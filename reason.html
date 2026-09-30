@@ -1,0 +1,662 @@
+`<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HART Study - Interim Analysis Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --secondary: #0d9488;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Section */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(30, 58, 138, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .header-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1.5rem;
+        }
+
+        .meta-item {
+            font-size: 0.9rem;
+        }
+
+        .meta-item span {
+            display: block;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* KPI Dashboard */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .kpi-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .kpi-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Main Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 0.75rem;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: var(--background);
+            color: var(--text-main);
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: #334155;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .badge-success { background-color: #d1fae5; color: #065f46; }
+        .badge-warning { background-color: #fef3c7; color: #92400e; }
+        .badge-danger { background-color: #fee2e2; color: #991b1b; }
+        .badge-info { background-color: #e0f2fe; color: #075985; }
+
+        /* Visualizations */
+        .chart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .chart-legend {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid var(--success);
+            padding: 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box-title {
+            font-weight: 700;
+            color: #166534;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Protocol Deviations List */
+        .deviation-item {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 0.75rem;
+            background-color: var(--background);
+        }
+
+        .deviation-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .deviation-id {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .deviation-details {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        /* Discussion Cards */
+        .discussion-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .discussion-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .discussion-card {
+            background-color: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .discussion-author {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header -->
+    <header>
+        <div class="header-title">HART - HPV after Radiotherapy</div>
+        <div class="header-subtitle">Implementace HPV testování u pacientek po radioterapii pro karcinom děložního hrdla</div>
+        <div class="meta-grid">
+            <div class="meta-item">Hlavní zkoušející: <span>MUDr. Lukáš Dostálek, Ph.D.</span></div>
+            <div class="meta-item">Sponzor: <span>Všeobecná fakultní nemocnice v Praze</span></div>
+            <div class="meta-item">Typ studie: <span>Prospektivní multicentrická observační</span></div>
+            <div class="meta-item">Verze protokolu: <span>1.0 (14.11.2025)</span></div>
+        </div>
+    </header>
+
+    <!-- KPI Dashboard -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-value">46</div>
+            <div class="kpi-label">ITT Populace</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">22</div>
+            <div class="kpi-label">Dokončená RT</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value">7</div>
+            <div class="kpi-label">Vizita 1</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" style="color: var(--success);">0</div>
+            <div class="kpi-label">Recidivy</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-value" style="color: var(--danger);">2</div>
+            <div class="kpi-label">Vyřazeno (EOT)</div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="content-grid">
+        <!-- Left Column: Results and Analysis -->
+        <main>
+            <!-- Introduction -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    Úvod a literární přehled
+                </h2>
+                <p>
+                    Sledování pacientek po primární chemoradioterapii (CRT) pro lokálně pokročilý karcinom děložního hrdla představuje v současné onkogynekologii významnou výzvu. Na rozdíl od pacientek po chirurgické léčbě, kde je role HPV testování v detekci reziduální nemoci či recidivy pevně etablována, u pacientek po CRT standardní doporučení HPV testování dosud rutinně nezahrnují. 
+                </p>
+                <p style="margin-top: 1rem;">
+                    Tradiční cytologické stěry vykazují v radiačním terénu extrémně nízkou senzitivitu a vysokou míru falešné pozitivity v důsledku radiačních atypií. Prospektivní sledování kinetiky <strong>HPV clearance</strong> (eliminace virové DNA ze stěru) a detekce <strong>cirkulující tumorózní HPV DNA (ctDNA)</strong> z periferní krve se jeví jako vysoce slibné biomarkery pro včasný záchyt recidiv s potenciálem individualizace následné péče.
+                </p>
+            </section>
+
+            <!-- Demographics -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 0 1 4-4 4 4 0 0 1 4 4M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Demografické a klinické charakteristiky (Table 1)
+                </h2>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Níže jsou uvedeny exaktní popisné statistiky pro ITT populaci (N = 46). Chybějící data byla z analýzy striktně vyloučena.
+                </p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Parametr</th>
+                                <th>Statistika / Distribuce (N = 46)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Věk (roky)</strong></td>
+                                <td>Průměr: <strong>54,5 let</strong> (SD: ±14,1; rozmezí: 25–84 let; n = 44 platných záznamů)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Histologický typ</strong></td>
+                                <td>
+                                    Dlaždicobuněčný karcinom: <strong>34 (81,0 %)</strong><br>
+                                    Adenokarcinom: <strong>8 (19,0 %)</strong><br>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">(n = 42 platných záznamů)</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>FIGO Stádium</strong></td>
+                                <td>
+                                    Stádium IB3: 1 (2,3 %)<br>
+                                    Stádium IIA2: 1 (2,3 %)<br>
+                                    Stádium IIB: 9 (20,5 %)<br>
+                                    Stádium IIIB: 3 (6,8 %)<br>
+                                    Stádium IIIC1: 19 (43,2 %)<br>
+                                    Stádium IIIC2: 9 (20,5 %)<br>
+                                    Stádium IVA: 2 (4,5 %)<br>
+                                    <span style="font-size: 0.8rem; color: var(--text-muted);">(n = 44 platných záznamů)</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- HPV Kinetics -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    Kinetika HPV infekce (Míra negativizace)
+                </h2>
+                <p>
+                    V rámci screeningu byla HPV pozitivita detekována u <strong>37 ze 43</strong> vyšetřených pacientek (<strong>86,0 %</strong>). Zbývajících 14,0 % pacientek vykazovalo HPV negativní status již na vstupu (což odpovídá literárním údajům o HPV negativních karcinomech či chybách primární detekce).
+                </p>
+                
+                <div class="chart-container">
+                    <svg width="400" height="220" viewBox="0 0 400 220">
+                        <!-- Grid lines -->
+                        <line x1="50" y1="20" x2="350" y2="20" stroke="#e2e8f0" stroke-dasharray="4"/>
+                        <line x1="50" y1="100" x2="350" y2="100" stroke="#e2e8f0" stroke-dasharray="4"/>
+                        <line x1="50" y1="180" x2="350" y2="180" stroke="#cbd5e1"/>
+                        
+                        <!-- Bars -->
+                        <!-- Screening: 86% -->
+                        <rect x="100" y="42.4" width="60" height="137.6" fill="url(#primaryGrad)" rx="4"/>
+                        <text x="130" y="35" text-anchor="middle" font-weight="700" fill="var(--primary)">86,0 %</text>
+                        <text x="130" y="200" text-anchor="middle" font-size="0.85rem" fill="var(--text-muted)">Screening (N=43)</text>
+                        
+                        <!-- Visit 1: 0% -->
+                        <rect x="240" y="178" width="60" height="2" fill="var(--success)" rx="1"/>
+                        <text x="270" y="165" text-anchor="middle" font-weight="700" fill="var(--success)">0,0 %</text>
+                        <text x="270" y="200" text-anchor="middle" font-size="0.85rem" fill="var(--text-muted)">Vizita 1 (N=7)</text>
+                        
+                        <!-- Gradients -->
+                        <defs>
+                            <linearGradient id="primaryGrad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="var(--primary-light)"/>
+                                <stop offset="100%" stop-color="var(--primary)"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: var(--primary-light);"></div>
+                            <span>Procento HPV pozitivních pacientek</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <div class="highlight-box-title">Klíčové zjištění interim analýzy</div>
+                    U všech 7 pacientek, které dosud absolvovaly Vizitu 1 (3 měsíce po ukončení RT), došlo k <strong>úplné negativizaci (100% clearance)</strong> HPV infekce ve stěru. Tento nález indikuje excelentní časnou lokální odpověď na podanou radioterapii v analyzované kohortě.
+                </div>
+            </section>
+
+            <!-- Recurrences -->
+            <section class="card">
+                <h2 class="card-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4M12 17h.01"/></svg>
+                    Analýza recidiv
+                </h2>
+                <p>
+                    K datu této interim analýzy nebyla u žádné z pacientek v ITT populaci (N = 46) zaznamenána <strong>žádná recidiva (0 %)</strong>. Vzhledem k tomu, že většina pacientek je na samém počátku sledování (pouze 7 pacientek dosáhlo milníku Vizity 1 a žádná dosud neabsolvovala Vizitu 2 či 3), je medián doby sledování příliš krátký pro hodnocení dlouhodobého přežití bez progresie (PFS). 
+                </p>
+                <p style="margin-top: 1rem;">
+                    Nulový výskyt recidiv je plně konzistentní se 100% mírou HPV clearance pozorovanou u Vizity 1.
+                </p>
+            </section>
+        </main>
+
+        <!-- Right Column: Drop-outs and Protocol Deviations -->
+        <aside>
+            <!-- Drop-outs -->
+            <section class="card">
+                <h2 class="card-title" style="font-size: 1.25rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/></svg>
+                    Analýza drop-outů
+                </h2>
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+                    Ze studie dosud předčasně vypadly <strong>2 pacientky (4,3 %)</strong>. Důvody vyřazení byly exaktně analyzovány:
+                </p>
+                
+                <div class="chart-container" style="margin: 1rem 0;">
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                        <!-- Donut Chart -->
+                        <circle cx="80" cy="80" r="50" fill="transparent" stroke="#e2e8f0" stroke-width="20"/>
+                        <!-- Segment 1: Exsanguination (50% of dropouts) -->
+                        <circle cx="80" cy="80" r="50" fill="transparent" stroke="var(--danger)" stroke-width="20" stroke-dasharray="157.08 314.16" stroke-dashoffset="78.54"/>
+                        <!-- Segment 2: Metastatic disease (50% of dropouts) -->
+                        <circle cx="80" cy="80" r="50" fill="transparent" stroke="var(--warning)" stroke-width="20" stroke-dasharray="157.08 314.16" stroke-dashoffset="235.62"/>
+                        <text x="80" y="85" text-anchor="middle" font-weight="800" font-size="1.2rem" fill="var(--primary)">N = 2</text>
+                    </svg>
+                    <div class="chart-legend" style="flex-direction: column; gap: 0.5rem; align-items: flex-start;">
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: var(--danger);"></div>
+                            <span><strong>PLZEN_6:</strong> Úmrtí (exsanguinace před zahájením RT)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color" style="background-color: var(--warning);"></div>
+                            <span><strong>FNKV_002:</strong> Metastatické onemocnění (změna strategie)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Protocol Deviations -->
+            <section class="card">
+                <h2 class="card-title" style="font-size: 1.25rem; color: var(--danger);">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    Odchylky od protokolu
+                </h2>
+                
+                <!-- Major Deviations -->
+                <div style="margin-bottom: 1.5rem;">
+                    <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--danger); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Důležité odchylky (Major - Overdue Vizita 1)
+                    </h3>
+                    
+                    <div class="deviation-item" style="border-left: 4px solid var(--danger);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka 4</span>
+                            <span class="badge badge-danger">Overdue V1</span>
+                        </div>
+                        <div class="deviation-details">
+                            Od screeningu uplynulo již <strong>178 dní</strong> a Vizita 1 dosud neproběhla (limit je 150 dní). <br>
+                            <span style="color: var(--danger); font-weight: 600;">Nutno urgentně kontaktovat centrum!</span>
+                        </div>
+                    </div>
+
+                    <div class="deviation-item" style="border-left: 4px solid var(--danger);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka_2</span>
+                            <span class="badge badge-danger">Overdue V1</span>
+                        </div>
+                        <div class="deviation-details">
+                            Od screeningu uplynulo již <strong>190 dní</strong> a Vizita 1 dosud neproběhla (limit je 150 dní). <br>
+                            <span style="color: var(--danger); font-weight: 600;">Nutno urgentně kontaktovat centrum!</span>
+                        </div>
+                    </div>
+
+                    <div class="deviation-item" style="border-left: 4px solid var(--danger);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka_7</span>
+                            <span class="badge badge-danger">Overdue V1</span>
+                        </div>
+                        <div class="deviation-details">
+                            Od screeningu uplynulo již <strong>162 dní</strong> a Vizita 1 dosud neproběhla (limit je 150 dní). <br>
+                            <span style="color: var(--danger); font-weight: 600;">Nutno urgentně kontaktovat centrum!</span>
+                        </div>
+                    </div>
+
+                    <div class="deviation-item" style="border-left: 4px solid var(--danger);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">PLZEN_3</span>
+                            <span class="badge badge-danger">Overdue V1</span>
+                        </div>
+                        <div class="deviation-details">
+                            Od screeningu uplynulo již <strong>171 dní</strong> a Vizita 1 dosud neproběhla (limit je 150 dní). <br>
+                            <span style="color: var(--danger); font-weight: 600;">Nutno urgentně kontaktovat centrum!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Minor Deviations -->
+                <div>
+                    <h3 style="font-size: 0.95rem; font-weight: 700; color: var(--warning); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                        Drobné odchylky (Minor)
+                    </h3>
+                    
+                    <div class="deviation-item" style="border-left: 4px solid var(--warning);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka_7 & FNBRNO02</span>
+                            <span class="badge badge-warning">scr_rt > 30 dní</span>
+                        </div>
+                        <div class="deviation-details">
+                            Interval mezi screeningem a zahájením RT činil <strong>32 dní</strong> u obou pacientek.
+                        </div>
+                    </div>
+
+                    <div class="deviation-item" style="border-left: 4px solid var(--warning);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka_5 & PLZEN_2</span>
+                            <span class="badge badge-warning">scr_v1 > 150 dní</span>
+                        </div>
+                        <div class="deviation-details">
+                            Interval mezi screeningem a Vizitou 1 činil <strong>166 dní</strong> u obou pacientek.
+                        </div>
+                    </div>
+
+                    <div class="deviation-item" style="border-left: 4px solid var(--warning);">
+                        <div class="deviation-header">
+                            <span class="deviation-id">Bulovka_6</span>
+                            <span class="badge badge-warning">scr_v1 > 150 dní</span>
+                        </div>
+                        <div class="deviation-details">
+                            Interval mezi screeningem a Vizitou 1 činil <strong>158 dní</strong>.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </aside>
+    </div>
+
+    <!-- Living Discussion -->
+    <section class="card">
+        <h2 class="card-title">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Living Discussion & Kontextualizace dat
+        </h2>
+        <p style="margin-bottom: 1.5rem;">
+            Naše průběžná data vykazují mimořádně příznivý trend v rychlosti clearance HPV infekce po ukončení radioterapie. Pro hlubší pochopení těchto výsledků je nezbytné je konfrontovat s klíčovými mezinárodními pracemi:
+        </p>
+        
+        <div class="discussion-grid">
+            <div class="discussion-card">
+                <div class="discussion-author">Song et al. (2011) [11]</div>
+                <p style="font-size: 0.9rem;">
+                    Autoři prokázali, že perzistence HPV DNA po radioterapii je nejsilnějším prediktorem lokální recidivy (78 % pacientek s perzistencí recidivovalo). Naše 100% clearance u Vizity 1 (n=7) je v souladu s tímto předpokladem a predikuje vynikající lokální kontrolu u těchto pacientek.
+                </p>
+            </div>
+
+            <div class="discussion-card">
+                <div class="discussion-author">Nagai et al. (2004) [12]</div>
+                <p style="font-size: 0.9rem;">
+                    Tato práce uvádí senzitivitu 85 % a specificitu 54 % pro HPV test ze stěru po RT. Naše studie HART si klade za cíl tyto parametry zpřesnit a porovnat je s detekcí ctDNA, která by měla eliminovat falešnou pozitivitu způsobenou přechodnou deskvamací neživých nádorových buněk.
+                </p>
+            </div>
+
+            <div class="discussion-card">
+                <div class="discussion-author">Cabel et al. (2021) [22]</div>
+                <p style="font-size: 0.9rem;">
+                    Práce potvrdila, že detekce HPV ctDNA z tekuté biopsie (liquid biopsy) dosahuje vysoké specificity a umožňuje detekovat minimální reziduální nemoc (MRD) dříve než standardní zobrazovací metody (PET/CT). V naší studii netrpělivě očekáváme první párová data ctDNA u pacientek s delším follow-upem.
+                </p>
+            </div>
+
+            <div class="discussion-card">
+                <div class="discussion-author">Han et al. (2024) [23]</div>
+                <p style="font-size: 0.9rem;">
+                    Nejnovější klinická validace ukazuje, že dynamika poklesu HPV ctDNA během samotné radioterapie koreluje s radiologickou odpovědí. V naší studii HART budeme tento aspekt detailně hodnotit u pacientek, které dokončí kompletní protokol tří vizit.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>`

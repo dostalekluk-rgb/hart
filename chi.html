@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HART Study - Univariate Contingency Analysis</title>
+    <style>
+        body { font-family: 'Inter', Arial, sans-serif; padding: 20px; color: #222222; }
+        .chi-card { background: #ffffff; border: 1px solid #e0e0e0; border-radius: 4px; padding: 16px; margin-bottom: 16px; color: #222222; }
+        .chi-table { border-collapse: collapse; margin-top: 8px; font-size: 13px; width: 100%; }
+        .chi-table th { background-color: #fafafa; color: #a6192e; text-align: center; padding: 8px 10px; font-weight: 700; font-family: 'Merriweather', Georgia, serif; border-bottom: 2px solid #a6192e; border-top: 1px solid #e0e0e0; }
+        .chi-table td { padding: 8px 10px; border-bottom: 1px solid #eeeeee; text-align: center; color: #333333; }
+        .chi-table tr:nth-child(even) { background-color: #fcfcfc; }
+        .p-bar-bg { width: 100%; background: #e5e7eb; height: 5px; border-radius: 2px; margin-top: 4px; overflow: hidden; }
+        .p-bar-fill-reg { background: #a6192e; height: 100%; }
+        .p-bar-fill-per { background: #666666; height: 100%; }
+        .badge-sig { background: #a6192e; color: #ffffff; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+        .badge-trend { background: #d97706; color: #ffffff; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+        .badge-ns { background: #f0f0f0; color: #666666; padding: 3px 8px; border-radius: 3px; font-size: 11px; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <h3 style="font-family:'Merriweather', Georgia, serif; font-size:16px; color:#a6192e; margin-bottom:12px; border-bottom: 2px solid #a6192e; padding-bottom: 4px;">Table 2. Univariate Contingency Analysis of Predictors of Disease Recurrence</h3>
+
+        <div class="chi-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <strong style="font-family:'Merriweather', Georgia, serif; font-size:14px; color:#111111;">Histology Subtype (Squamous Cell vs Adenocarcinoma)</strong>
+                <span class="badge-ns">NOT SIGNIFICANT (P = 1.0000)</span>
+            </div>
+            <div style="font-size:12px; color:#666666; margin-bottom:8px;">
+                <strong>Chi-Square (χ²):</strong> 0 &nbsp;|&nbsp; <strong>P Value:</strong> P = 1.0000 &nbsp;|&nbsp; <strong>Odds Ratio (OR):</strong> N/A (95% CI: ---)
+            </div>
+            <table class="chi-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Category</th>
+                        <th>No Recurrence (n = 50)</th>
+                        <th>Disease Recurrence (n = 0)</th>
+                        <th>Total Evaluated (n = 50)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">Squamous Cell</td>
+                        <td>
+                            <div>44 (88.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:88.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>44</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">Adenocarcinoma</td>
+                        <td>
+                            <div>6 (12.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:12.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>6</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="chi-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <strong style="font-family:'Merriweather', Georgia, serif; font-size:14px; color:#111111;">FIGO Stage (Early Stage IB1-IB2 vs Advanced IIB+)</strong>
+                <span class="badge-ns">NOT SIGNIFICANT (P = 1.0000)</span>
+            </div>
+            <div style="font-size:12px; color:#666666; margin-bottom:8px;">
+                <strong>Chi-Square (χ²):</strong> 0 &nbsp;|&nbsp; <strong>P Value:</strong> P = 1.0000 &nbsp;|&nbsp; <strong>Odds Ratio (OR):</strong> N/A (95% CI: ---)
+            </div>
+            <table class="chi-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Category</th>
+                        <th>No Recurrence (n = 52)</th>
+                        <th>Disease Recurrence (n = 0)</th>
+                        <th>Total Evaluated (n = 52)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">IB1-IB2</td>
+                        <td>
+                            <div>0 (0.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:0.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">IIB+</td>
+                        <td>
+                            <div>52 (100.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:100.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>52</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="chi-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <strong style="font-family:'Merriweather', Georgia, serif; font-size:14px; color:#111111;">Concurrent Cisplatin Chemotherapy (Yes vs No)</strong>
+                <span class="badge-ns">NOT SIGNIFICANT (P = 1.0000)</span>
+            </div>
+            <div style="font-size:12px; color:#666666; margin-bottom:8px;">
+                <strong>Chi-Square (χ²):</strong> 0 &nbsp;|&nbsp; <strong>P Value:</strong> P = 1.0000 &nbsp;|&nbsp; <strong>Odds Ratio (OR):</strong> N/A (95% CI: ---)
+            </div>
+            <table class="chi-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Category</th>
+                        <th>No Recurrence (n = 25)</th>
+                        <th>Disease Recurrence (n = 0)</th>
+                        <th>Total Evaluated (n = 25)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">Yes</td>
+                        <td>
+                            <div>24 (96.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:96.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>24</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">No</td>
+                        <td>
+                            <div>1 (4.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:4.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>1</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="chi-card">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                <strong style="font-family:'Merriweather', Georgia, serif; font-size:14px; color:#111111;">HPV Clearance at Visit 1 (Negative vs Persistent Positive)</strong>
+                <span class="badge-ns">NOT SIGNIFICANT (P = 1.0000)</span>
+            </div>
+            <div style="font-size:12px; color:#666666; margin-bottom:8px;">
+                <strong>Chi-Square (χ²):</strong> 0 &nbsp;|&nbsp; <strong>P Value:</strong> P = 1.0000 &nbsp;|&nbsp; <strong>Odds Ratio (OR):</strong> N/A (95% CI: ---)
+            </div>
+            <table class="chi-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;">Category</th>
+                        <th>No Recurrence (n = 15)</th>
+                        <th>Disease Recurrence (n = 0)</th>
+                        <th>Total Evaluated (n = 15)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">Negative (Cleared)</td>
+                        <td>
+                            <div>12 (80.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:80.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>12</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left; font-weight: 600; color:#222222;">Persistent Positive</td>
+                        <td>
+                            <div>3 (20.0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-reg" style="width:20.0%;"></div></div>
+                        </td>
+                        <td>
+                            <div>0 (0%)</div>
+                            <div class="p-bar-bg"><div class="p-bar-fill-per" style="width:0%;"></div></div>
+                        </td>
+                        <td><strong>3</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </body>
+</html>
